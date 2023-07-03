@@ -36,8 +36,84 @@
             Por el momento planteamos el Modelo de Rezagos Infinitos solamente:
             <br>
             $$Y_{t}=\alpha + \beta_{0}X_{t}+\beta_{1}X_{t-1}+\beta_{2}X_{t-2}+\beta_{3}X_{t-3}+ ... +\mu_{t}$$
+            <br>
+            Donde los betas son positivos y disminuyen geometricamente de la siguiente manera:
+            \[ \beta_{k}=\beta_{0}\lambda^{k} \; \longrightarrow
+            \; 0<\lambda<1 \]
         </p>
+        <h3>1.1. Deducción</h3>
+        <p>
+            \[ Y_{t}=\alpha+\beta_{0}X_{t}+\beta_{1}X_{t-1}+\beta_{2}X_{t-2}+\beta_{3}X_{t-3}+ ... +\mu_{t} \]
+            \[ Y_{t}=\alpha+\beta_{0}X_{t}+\lambda\beta_{0}X_{t-1}+\lambda^{2}\beta_{0}X_{t-2}+\lambda^{3}\beta_{0}X_{t-3}+ \cdots +\mu_{t} \tag{1}\]
+            \[ (\lambda) \longrightarrow \lambda Y_{t}=\lambda \alpha+\lambda \beta_{0}X_{t}+\lambda^{2}\beta_{0}X_{t-1}+\lambda^{3}\beta_{0}X_{t-2}+\lambda^{4}\beta_{0}X_{t-3}+ \cdots +\lambda\mu_{t} \]
+            \[ (t-1) \longrightarrow  \lambda Y_{t-1}=\lambda \alpha+\lambda \beta_{0}X_{t-1}+\lambda^{2}\beta_{0}X_{t-2}+\lambda^{3}\beta_{0}X_{t-3}+ \cdots +\lambda\mu_{t-1}  \tag{2}\]
+            Restamos (1-2), con lo cual:
+            \[ Y_{t}-\lambda Y_{t-1}=(\alpha-\lambda\alpha)+\beta_{0}X_{t}+\mu_{t}-\lambda\mu_{t-1} \]
+            El cual resulta la transformación de Koyck a Corto Plazo:
+            \[Y_{t}=\alpha_{0}+\beta_{0}X_{t}+\lambda Y_{t-1}+v_{t}\]
+        </p>
+        <h2>2. Interpretación de Koyck de acuerdo a nuestro modelo PBI del Sector Minero</h2>
+        <p>
+            \[PBI_{M,t}=-2739.16+0.691277V_{cobre,t}+0.283092PBI_{M,t-1}+v_{t}\]
+        </p>
+        <div class="interpretacion">
+            <ul>
+                <li>\(\beta_{0} =0.691277\), es la propension marginal a CP de las ventas de cobre.</li>
+                <br>
+                <li>\( \beta=\frac{\beta_{0}}{(1-\lambda)} =0.96424\), es la propension marginal a LP  de las ventas de cobre. </li>
+                <br>
+                <li>\( \beta^{*}_{1}=\frac{\beta_{1}}{\beta}=\frac{0.691277}{0.96424}=0.716458 \), este beta estandarizado muestra como el cambio unitario de las ventas de cobre impactan en un 0.716458 el PBI(minero) en el primer periodo.</li>
+                <br>
+                <li>
+                    \(RM=\frac{\lambda}{1-\lambda}=\frac{0.283092}{1-0.283092}=0.39487\), es el promedio ponderado de los rezagos.
+                </li>
+                <br>
+                <li>
+                    \( MR=\frac{-log2}{log\lambda}=\frac{-log2}{log(0.283092)}=0.55\), es decir el 50% del impacto de las ventas de cobre sobre el PBI minero se da en la mitad del primer periodo.
+                </li>
+                <br>
+                <li>Calculando \(\beta_{1}, \beta_{2}, \beta_{3} \, y \, \beta_{4}\)</li>
+                <p>
+                    \[\beta_{0} = 0.691277\]
+                    \[\beta_{1} = \lambda \beta_{0} = 0.283092 \cdot 0.691277 = 0.1957\]
+                    \[\beta_{2} = \lambda \beta_{1} = 0.283092 \cdot 0.1957 = 0.0554\]
+                    \[\beta_{3} = \lambda \beta_{2} =  0.283092 \cdot 0.0554 = 0.01568\]
+                    \[\beta_{4} = 0.00443\]
+                </p>
+            </ul>
+        </div>
+        <h2>
+            3. Equilibrio a Largo Plazo
+        </h2>
+        <P>
+            El modelo de Koyck se puede expresar de la siguiente manera:
+
+            \[Y_t = \alpha + \beta Y_{t-1} + \gamma X_{t-1} + \varepsilon_t\]
+
+            Cuando queremos separar el efecto de corto plazo del efecto de largo plazo, asumimos que en el equilibrio de largo plazo las variables se igualan y, por lo tanto, no hay cambios en la variable dependiente en cada período. Esto se puede expresar como:
+            
+            \[Y_t = Y_{t-1}\]
+
+            Si sustituimos \(Y_t\) en la ecuación del modelo de Koyck por \(Y_{t-1}\), obtenemos:
+
+            \[Y_{t-1} = \alpha + \beta Y_{t-1} + \gamma X_{t-1} + \varepsilon_t\]
+
+            Luego, podemos reorganizar la ecuación para aislar \(Y_{t-1}\):
+
+            \[Y_{t-1} - \beta Y_{t-1} = \alpha + \gamma X_{t-1} + \varepsilon_t\]
+
+            \((1 - \beta)Y_{t-1} = \alpha + \gamma X_{t-1} + \varepsilon_t\)
+
+            Finalmente, podemos dividir ambos lados de la ecuación por \((1 - \beta)\) para obtener:
+            
+            \[Y_{t-1} = \frac{{\alpha + \gamma X_{t-1} + \varepsilon_t}}{{1 - \beta}}\]
+
+            En resumen al desprender el componente de largo plazo, se elimina la variable \(Y_{t-1}\) porque se asume que en el equilibrio de largo plazo no hay cambios inmediatos en la variable dependiente. En el largo plazo, la variable dependiente se estabiliza y se iguala a su valor en el período anterior, lo que implica que no hay cambios o ajustes rápidos en cada período. Por lo tanto, al eliminar \(Y_{t-1}\), se separa el efecto de corto plazo, que captura los cambios rápidos y dinámicos, del componente de equilibrio de largo plazo, que refleja una relación estable entre las variables en el largo plazo. Lo cual nos garantiza poder plantear el modelo de Koyck de Largo Plazo:
+
+            \[ Y_{t}=\alpha + \beta X_{t}\]
+        </P>
     </main>
     
+
 </body>
 </html>
